@@ -78,6 +78,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             .staticCell(model: SettingsOption(title: "Personal Hotspot", icon: UIImage(systemName: "personalhotspot"), iconBackGroundColor: .systemGreen, handler: {
                     print("Tapped Personal Hotspot")
             }, statusLabel: "Off")),
+
+            .switchCell(model: SettingsSwitchOption(title: "VPN", icon: UIImage(systemName: "network"), iconBackGroundColor: .systemBlue, handler: {
+                    print("Tapped VPN")
+            }, isOn: false)),
         ]))
 
     }
