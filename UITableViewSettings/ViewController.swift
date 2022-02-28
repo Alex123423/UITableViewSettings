@@ -87,7 +87,11 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         models.append(Section(title: "", options: [
             .staticCell(model: SettingsOption(title: "Notifications", icon: UIImage(systemName: "bell.badge.fill"), iconBackGroundColor: .systemRed, handler: {
                     print("Tapped Notifications")
-            }, statusLabel: ""))
+            }, statusLabel: "")),
+
+            .staticCell(model: SettingsOption(title: "Sounds & Haptics", icon: UIImage(systemName: "speaker.wave.3.fill"), iconBackGroundColor: .systemPink, handler: {
+                    print("Tapped Sounds & Haptics")
+            }, statusLabel: "")),
 
         ]))
 
