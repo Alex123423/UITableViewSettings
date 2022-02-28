@@ -58,7 +58,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func configure() {
-        models.append(Section(title: "General", options: [
+        models.append(Section(title: "", options: [
             .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackGroundColor: .systemOrange, handler: {
                     print("Tapped Airplane mode")
             }, isOn: false)),
@@ -82,6 +82,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             .switchCell(model: SettingsSwitchOption(title: "VPN", icon: UIImage(systemName: "network"), iconBackGroundColor: .systemBlue, handler: {
                     print("Tapped VPN")
             }, isOn: false)),
+        ]))
+
+        models.append(Section(title: "", options: [
+            .staticCell(model: SettingsOption(title: "Notifications", icon: UIImage(systemName: "bell.badge.fill"), iconBackGroundColor: .systemRed, handler: {
+                    print("Tapped Notifications")
+            }, statusLabel: ""))
+
         ]))
 
     }
