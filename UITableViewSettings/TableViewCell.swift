@@ -32,11 +32,19 @@ class TableViewCell: UITableViewCell {
         return label
     }()
 
+    private let statusLabel: UILabel = {
+        let statusLabel = UILabel()
+        statusLabel.numberOfLines = 1
+        statusLabel.textColor = .gray
+        return statusLabel
+    }()
+
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         contentView.addSubview(label)
         contentView.addSubview(iconContainer)
         iconContainer.addSubview(iconImageView)
+        contentView.addSubview(statusLabel)
         contentView.clipsToBounds = true
         accessoryType = .disclosureIndicator
     }
@@ -57,6 +65,11 @@ class TableViewCell: UITableViewCell {
                              y: 0,
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
                              height: contentView.frame.size.height)
+
+        statusLabel.frame = CGRect(x: contentView.frame.size.width - 125,
+                                   y: 0,
+                                   width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
+                                   height: contentView.frame.size.height)
     }
 
     override func prepareForReuse() {
@@ -64,11 +77,13 @@ class TableViewCell: UITableViewCell {
         iconImageView.image = nil
         label.text = nil
         iconContainer.backgroundColor = nil
+        statusLabel.text = nil
     }
 
     public func configure(with model: SettingsOption) {
         label.text = model.title
         iconImageView.image = model.icon
         iconContainer.backgroundColor = model.iconBackGroundColor
+        statusLabel.text = model.statusLabel
     }
 }
