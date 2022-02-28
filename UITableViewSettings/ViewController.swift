@@ -93,6 +93,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped Sounds & Haptics")
             }, statusLabel: "")),
 
+            .staticCell(model: SettingsOption(title: "Do Not Disturb", icon: UIImage(systemName: "moon.fill"), iconBackGroundColor: .systemPurple, handler: {
+                    print("Do Not Disturb")
+            }, statusLabel: "")),
+
         ]))
 
     }
