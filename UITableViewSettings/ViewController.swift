@@ -30,6 +30,7 @@ struct SettingsOption {
     let icon: UIImage?
     let iconBackGroundColor: UIColor
     let handler: (() -> Void)
+    let statusLabel: String
 }
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
@@ -62,6 +63,9 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped airplane mode")
             }, isOn: false)),
 
+                .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackGroundColor: .systemBlue, handler: {
+                    print("Tapped Wi-Fi")
+                }, statusLabel: "Not connected"))
         ]))
 
     }
