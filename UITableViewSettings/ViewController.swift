@@ -94,9 +94,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }, statusLabel: "")),
 
             .staticCell(model: SettingsOption(title: "Do Not Disturb", icon: UIImage(systemName: "moon.fill"), iconBackGroundColor: .systemPurple, handler: {
-                    print("Do Not Disturb")
+                    print("Tapped Do Not Disturb")
             }, statusLabel: "")),
 
+            .staticCell(model: SettingsOption(title: "Screen Time", icon: UIImage(systemName: "hourglass"), iconBackGroundColor: .systemPurple, handler: {
+                    print("Tapped Screen Time")
+            }, statusLabel: "")),
         ]))
 
     }
