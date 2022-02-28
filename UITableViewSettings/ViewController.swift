@@ -74,6 +74,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             .staticCell(model: SettingsOption(title: "Mobile Data", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), iconBackGroundColor: .systemGreen, handler: {
                     print("Tapped Mobile Data")
             }, statusLabel: "")),
+
+            .staticCell(model: SettingsOption(title: "Personal Hotspot", icon: UIImage(systemName: "personalhotspot"), iconBackGroundColor: .systemGreen, handler: {
+                    print("Tapped Personal Hotspot")
+            }, statusLabel: "Off")),
         ]))
 
     }
