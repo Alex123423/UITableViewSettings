@@ -57,6 +57,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
 
     func configure() {
+        models.append(Section(title: "General", options: [
+            .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackGroundColor: .systemOrange, handler: {
+                    print("Tapped airplane mode")
+            }, isOn: false)),
+
+        ]))
+
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
