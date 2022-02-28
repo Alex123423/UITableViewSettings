@@ -60,16 +60,20 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     func configure() {
         models.append(Section(title: "General", options: [
             .switchCell(model: SettingsSwitchOption(title: "Airplane Mode", icon: UIImage(systemName: "airplane"), iconBackGroundColor: .systemOrange, handler: {
-                    print("Tapped airplane mode")
+                    print("Tapped Airplane mode")
             }, isOn: false)),
 
             .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackGroundColor: .systemBlue, handler: {
                     print("Tapped Wi-Fi")
             }, statusLabel: "Not connected")),
 
-                .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bonjour"), iconBackGroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bonjour"), iconBackGroundColor: .systemBlue, handler: {
                     print("Tapped Bluetooth")
             }, statusLabel: "Off")),
+
+            .staticCell(model: SettingsOption(title: "Mobile Data", icon: UIImage(systemName: "antenna.radiowaves.left.and.right"), iconBackGroundColor: .systemGreen, handler: {
+                    print("Tapped Mobile Data")
+            }, statusLabel: "")),
         ]))
 
     }
