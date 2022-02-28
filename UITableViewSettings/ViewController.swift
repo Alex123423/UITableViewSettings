@@ -63,9 +63,13 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped airplane mode")
             }, isOn: false)),
 
-                .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackGroundColor: .systemBlue, handler: {
+            .staticCell(model: SettingsOption(title: "Wi-Fi", icon: UIImage(systemName: "wifi"), iconBackGroundColor: .systemBlue, handler: {
                     print("Tapped Wi-Fi")
-                }, statusLabel: "Not connected"))
+            }, statusLabel: "Not connected")),
+
+                .staticCell(model: SettingsOption(title: "Bluetooth", icon: UIImage(systemName: "bonjour"), iconBackGroundColor: .systemBlue, handler: {
+                    print("Tapped Bluetooth")
+            }, statusLabel: "Off")),
         ]))
 
     }
