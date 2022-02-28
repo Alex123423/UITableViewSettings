@@ -36,6 +36,7 @@ class TableViewCell: UITableViewCell {
         let statusLabel = UILabel()
         statusLabel.numberOfLines = 1
         statusLabel.textColor = .gray
+        statusLabel.textAlignment = .right
         return statusLabel
     }()
 
@@ -66,7 +67,7 @@ class TableViewCell: UITableViewCell {
                              width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
                              height: contentView.frame.size.height)
 
-        statusLabel.frame = CGRect(x: contentView.frame.size.width - 125,
+        statusLabel.frame = CGRect(x: 40,
                                    y: 0,
                                    width: contentView.frame.size.width - 20 - iconContainer.frame.size.width,
                                    height: contentView.frame.size.height)
