@@ -123,6 +123,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped Control Center")
             }, statusLabel: "")),
 
+            .staticCell(model: SettingsOption(title: "Display & Brightness", icon: UIImage(systemName: "textformat.size"), iconBackGroundColor: .systemBlue, handler: {
+                    print("Tapped Display & Brightness")
+            }, statusLabel: "")),
+
         ]))
     }
 
