@@ -15,14 +15,7 @@ struct Section {
 enum SettingsOptionType {
     case staticCell(model: SettingsOption)
     case switchCell(model: SettingsSwitchOption)
-}
-
-struct SettingsSwitchOption {
-    let title: String
-    let icon: UIImage?
-    let iconBackGroundColor: UIColor
-    let handler: (() -> Void)
-    let isOn: Bool
+    case imageCell(model: SettingsInfoImageOption)
 }
 
 struct SettingsOption {
@@ -33,6 +26,23 @@ struct SettingsOption {
     let statusLabel: String
 }
 
+struct SettingsSwitchOption {
+    let title: String
+    let icon: UIImage?
+    let iconBackGroundColor: UIColor
+    let handler: (() -> Void)
+    let isOn: Bool
+}
+
+struct SettingsInfoImageOption {
+    let title: String
+    let icon: UIImage?
+    let iconBackGroundColor: UIColor
+    let handler: (() -> Void)
+    let infoImage: UIImage?
+    let imageBackGroundColor: UIColor
+}
+
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     private let tableView: UITableView = {
@@ -41,6 +51,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                        forCellReuseIdentifier: TableViewCell.identifier)
         table.register(SwitchTableViewCell.self,
                        forCellReuseIdentifier: SwitchTableViewCell.identifier)
+        table.register(ImageTableViewCell.self,
+                       forCellReuseIdentifier: ImageTableViewCell.identifier)
 
         return table
     }()
@@ -102,6 +114,12 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }, statusLabel: "")),
         ]))
 
+        models.append(Section(title: "", options: [
+            .imageCell(model: SettingsInfoImageOption(title: "General", icon: UIImage(systemName: "gear"), iconBackGroundColor: .systemGray, handler: {
+                    print("Tapped General")
+            }, infoImage: UIImage(systemName: "1.circle.fill"), imageBackGroundColor: .systemRed)),
+
+        ]))
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -121,6 +139,7 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         let model = models[indexPath.section].options[indexPath.row]
 
         switch model.self {
+
         case .staticCell(let model):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: TableViewCell.identifier,
@@ -130,11 +149,22 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
             }
             cell.configure(with: model)
             return cell
+
         case .switchCell(let model):
             guard let cell = tableView.dequeueReusableCell(
                 withIdentifier: SwitchTableViewCell.identifier,
                 for: indexPath
             ) as? SwitchTableViewCell else {
+                return UITableViewCell()
+            }
+            cell.configure(with: model)
+            return cell
+            
+        case .imageCell(let model):
+            guard let cell = tableView.dequeueReusableCell(
+                withIdentifier: ImageTableViewCell.identifier,
+                for: indexPath
+            ) as? ImageTableViewCell else {
                 return UITableViewCell()
             }
             cell.configure(with: model)
@@ -149,6 +179,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
         case .staticCell(let model):
             model.handler()
         case .switchCell(let model):
+            model.handler()
+        case .imageCell(let model):
             model.handler()
         }
     }
