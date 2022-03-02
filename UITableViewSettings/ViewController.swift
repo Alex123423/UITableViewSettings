@@ -119,6 +119,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped General")
             }, infoImage: UIImage(systemName: "1.circle.fill"), imageBackGroundColor: .systemRed)),
 
+            .staticCell(model: SettingsOption(title: "Control Center", icon: UIImage(systemName: "switch.2"), iconBackGroundColor: .systemGray, handler: {
+                    print("Tapped Control Center")
+            }, statusLabel: "")),
+
         ]))
     }
 
