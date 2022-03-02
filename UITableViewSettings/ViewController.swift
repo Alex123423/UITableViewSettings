@@ -127,6 +127,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped Display & Brightness")
             }, statusLabel: "")),
 
+            .staticCell(model: SettingsOption(title: "Home Screen", icon: UIImage(systemName: "house"), iconBackGroundColor: .blue, handler: {
+                    print("Tapped Home Screen")
+            }, statusLabel: "")),
+
         ]))
     }
 
