@@ -131,6 +131,10 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     print("Tapped Home Screen")
             }, statusLabel: "")),
 
+            .staticCell(model: SettingsOption(title: "Accessibility", icon: UIImage(systemName: "person.crop.circle"), iconBackGroundColor: .systemBlue, handler: {
+                    print("Tapped Accessibility")
+            }, statusLabel: "")),
+
         ]))
     }
 
